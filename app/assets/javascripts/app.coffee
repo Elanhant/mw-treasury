@@ -1,0 +1,2 @@
+mwTreasury = angular.module('mwTreasury', [
+])

@@ -1,0 +1,17 @@
+<div class="ui form segment">
+	<div class="field">
+		<label for="keywords">Keywords</label>
+		<input type="text" ng-model="keywords" name="keywords" placeholder="Plugin name, e.g. Mountaineous Red Mountain">
+	</div>
+	<div class="ui blue submit button" ng-click="search(keywords)">Search</div>
+	<div class="ui green button" ng-click="newPlugin()">Add Plugin</div>
+</div>
+<div ng-if="plugins">
+	<h2 class="ui header">Plugins</h2>
+	<div ng-repeat="plugin in plugins">
+		<div class="ui piled segment">
+			<h2 ng-click="view(plugin.id)">{{ plugin.name }}</h2>
+			<p>{{ plugin.description }}</p>
+		</div>
+	</div>
+</div>

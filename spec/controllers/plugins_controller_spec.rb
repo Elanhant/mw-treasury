@@ -42,4 +42,30 @@ describe PluginsController do
 		end
 
 	end
+
+	describe "show" do
+		before do
+		  xhr :get, :show, format: :json, id: plugin_id
+		end
+
+		subject(:results) { JSON.parse(response.body) }
+
+		context 'when the plugin exists' do
+			let(:plugin) { 
+				Plugin.create!(name: 'Mountaineous Red Mountain',
+					description: "Makes the Red Mountain more edgy and high")
+			}
+			let(:plugin_id) { plugin.id }
+
+			it { expect(response.status).to eq(200) }
+			it { expect(results["id"]).to eq(plugin.id) }
+			it { expect(results["name"]).to eq(plugin.name) }
+			it { expect(results["description"]).to eq(plugin.description) }
+		end
+
+		context 'when the plugin doesn\'t exist' do
+			let(:plugin_id) { -9999 }
+			it { expect(response.status).to eq(404) }
+		end
+	end
 end

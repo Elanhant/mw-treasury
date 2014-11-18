@@ -6,4 +6,8 @@ class PluginsController < ApplicationController
   								[]
   							end
   end
+
+  def show
+  	@plugin = Plugin.find(params[:id])
+  end
 end

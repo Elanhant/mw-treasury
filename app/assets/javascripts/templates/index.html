@@ -10,7 +10,7 @@
 	<h2 class="ui header">Plugins</h2>
 	<div ng-repeat="plugin in plugins">
 		<div class="ui piled segment">
-			<h2 ng-click="view(plugin.id)">{{ plugin.name }}</h2>
+			<h2><a href ng-click="view(plugin.id)">{{ plugin.name }}</a></h2>
 			<p>{{ plugin.description }}</p>
 		</div>
 	</div>

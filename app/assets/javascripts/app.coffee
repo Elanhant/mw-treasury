@@ -13,7 +13,7 @@ mwTreasury.config(['$routeProvider',
 			.when('/',
 				templateUrl: "index.html"
 				controller: 'PluginsController'
-			).when('/recipes/:recipeId',
+			).when('/plugins/:pluginId',
 				templateUrl: "show.html"
 				controller: 'PluginController'
 			)

@@ -45,7 +45,7 @@ describe "PluginController", ->
 				expect(scope.plugin).toEqualData(fakePlugin)
 		describe 'plugin is not found', ->
 			beforeEach(setupController(false))
-			it 'loads the given recipe', ->
+			it 'loads the given plugin', ->
 				httpBackend.flush()
 				expect(scope.plugin).toBe(null)
 				expect(flash.error).toBe("There is no plugin with ID #{pluginId}")

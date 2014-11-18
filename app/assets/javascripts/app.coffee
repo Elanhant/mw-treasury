@@ -3,6 +3,8 @@ mwTreasury = angular.module('mwTreasury', [
 	'ngRoute',
 	'ngResource',
 	'controllers',
+	'angular-flash.service',
+	'angular-flash.flash-alert-directive'
 ])
 
 mwTreasury.config(['$routeProvider', 

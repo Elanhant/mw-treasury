@@ -3,6 +3,7 @@ describe "PluginController", ->
 	ctrl 				= null
 	routeParams = null
 	httpBackend = null
+	flash				= null
 	pluginId 		= 42
 
 	fakePlugin 	= 
@@ -11,12 +12,13 @@ describe "PluginController", ->
 		description: "Makes the Red Mountain more edgy and high"
 
 	setupController =(pluginExists=true)->
-		inject(($location, $routeParams, $rootScope, $httpBackend, $controller)->
+		inject(($location, $routeParams, $rootScope, $httpBackend, $controller, _flash_)->
 			scope 			= $rootScope.$new()
 			location 		= $location
 			httpBackend = $httpBackend
 			routeParams = $routeParams
 			routeParams.pluginId = pluginId
+			flash = _flash_
 
 			request = new RegExp("\/plugins/#{pluginId}")
 			results = if pluginExists
@@ -46,3 +48,4 @@ describe "PluginController", ->
 			it 'loads the given recipe', ->
 				httpBackend.flush()
 				expect(scope.plugin).toBe(null)
+				expect(flash.error).toBe("There is no plugin with ID #{pluginId}")

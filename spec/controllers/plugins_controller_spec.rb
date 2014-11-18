@@ -68,4 +68,41 @@ describe PluginsController do
 			it { expect(response.status).to eq(404) }
 		end
 	end
+
+	describe "create" do
+		before do
+		  xhr :post, :create, format: :json, plugin: { name: 'Morrowind Graphic Extender',
+		  																			description: 'Overhauls graphics - distant land, shaders support, antialaising' }
+		end
+		it { expect(response.status).to eq(201) }
+		it { expect(Plugin.last.name).to eq('Morrowind Graphic Extender') }
+		it { expect(Plugin.last.description).to eq('Overhauls graphics - distant land, shaders support, antialaising') }
+	end
+
+	describe "update" do
+		let(:plugin) { 
+			Plugin.create!(name: 'Better Almalexia',
+							description: 'Improves Almalexia\'s appearance, making her look up to Better Bodies standart')
+		}
+		before do
+		  xhr :put, :update, format: :json, id: plugin.id, plugin: { name: 'Morrowind Graphic Extender',
+		  																			description: 'Overhauls graphics - distant land, shaders support, antialaising' }
+			plugin.reload		  																			
+		end
+		it { expect(response.status).to eq(204) }
+		it { expect(plugin.name).to eq('Morrowind Graphic Extender') }
+		it { expect(plugin.description).to eq('Overhauls graphics - distant land, shaders support, antialaising') }
+	end
+
+	describe "destroy" do
+		let(:plugin_id) { 
+			Plugin.create!(name: 'Better Almalexia',
+							description: 'Improves Almalexia\'s appearance, making her look up to Better Bodies standart').id
+		}
+		before do
+		  xhr :delete, :destroy, format: :json, id: plugin_id
+		end
+		it { expect(response.status).to eq(204) }
+		it { expect(Plugin.find_by_id(plugin_id)).to be_nil }
+	end
 end

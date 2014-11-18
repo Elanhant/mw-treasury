@@ -3,6 +3,8 @@
   "dependencies": {
     "angular": "latest",
     "angular-route": "latest",
+    "angular-resource": "latest",
+    "angular-mocks": "latest",
     "semantic-ui-sass": "latest"
   }
 }

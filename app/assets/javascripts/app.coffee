@@ -19,8 +19,14 @@ mwTreasury.config(['$routeProvider', 'flashProvider',
 			.when('/',
 				templateUrl: "index.html"
 				controller: 'PluginsController'
+			).when('/plugins/new',
+				templateUrl: "form.html"
+				controller: 'PluginController'
 			).when('/plugins/:pluginId',
 				templateUrl: "show.html"
+				controller: 'PluginController'
+			).when('/plugins/:pluginId/edit',
+				templateUrl: "form.html"
 				controller: 'PluginController'
 			)
 ])

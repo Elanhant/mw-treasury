@@ -1,0 +1,23 @@
+<aside>
+	<div flash-alert class="ui" active-class="message" duration="0">
+		{{flash.message}}
+	</div>
+</aside>
+<div class="ui form segment">
+	<div class="field" ng-class="{'red':errors.name}">
+		<label for="name">Name</label>
+		<div class="ui input">
+			<input type="text" name="name" placeholder="e.g. Another Retexture" ng-model="plugin.name">
+		</div>
+	</div>
+	<div class="field" ng-class="{'red':errors.description}">
+		<label for="description">Description</label>
+		<div class="ui input">
+			<textarea name="description" placeholder="e.g. I wasn't satisfied with ugly gray textures so i did some moronish colored retexture" ng-model="plugin.description"></textarea>
+		</div>
+	</div>
+	<div class="field">
+		<button class="ui button" ng-click="cancel()">Cancel</button>
+		<button class="ui blue submit right floated button" ng-click="save()">Save</button>
+	</div>
+</div>

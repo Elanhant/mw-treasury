@@ -10,4 +10,7 @@ controllers.controller("PluginsController", [ '$scope', '$routeParams', '$locati
 			$scope.plugins = []
 
 		$scope.view = (pluginId)-> $location.path("/plugins/#{pluginId}")
+
+		$scope.newPlugin 	= -> $location.path("/plugins/new")
+		$scope.edit 			= (pluginId)-> $location.path("/plugins/#{pluginId}/edit")
 ])

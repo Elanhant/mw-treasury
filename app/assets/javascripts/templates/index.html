@@ -4,7 +4,7 @@
 		<input type="text" ng-model="keywords" name="keywords" placeholder="Plugin name, e.g. Mountaineous Red Mountain">
 	</div>
 	<button class="ui blue submit button" ng-click="search(keywords)">Search</button>
-	<div class="ui green button" ng-click="newPlugin()">Add Plugin</div>
+	<button class="ui green button" ng-click="newPlugin()">Add Plugin</button>
 </div>
 <div ng-if="plugins">
 	<h2 class="ui header">Plugins</h2>
@@ -12,6 +12,7 @@
 		<div class="ui piled segment">
 			<h2><a href ng-click="view(plugin.id)">{{ plugin.name }}</a></h2>
 			<p>{{ plugin.description }}</p>
+			<button class="ui blue button" ng-click="edit(plugin.id)">Edit</button>
 		</div>
 	</div>
 </div>

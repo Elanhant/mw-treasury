@@ -7,8 +7,14 @@ mwTreasury = angular.module('mwTreasury', [
 	'angular-flash.flash-alert-directive'
 ])
 
-mwTreasury.config(['$routeProvider', 
-	($routeProvider)->
+mwTreasury.config(['$routeProvider', 'flashProvider', 
+	($routeProvider,flashProvider)->
+
+		flashProvider.errorClassnames.push("error")
+		flashProvider.warnClassnames.push("warnning")
+		flashProvider.infoClassnames.push("info")
+		flashProvider.successClassnames.push("success")
+
 		$routeProvider
 			.when('/',
 				templateUrl: "index.html"

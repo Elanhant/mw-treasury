@@ -7,8 +7,44 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="ui grid">
+		<div class="ten wide column">
+			<%= yield %>
+		</div>
+		<div class="six wide column">
+			<div class="ui piled blue segment">
+				<h4 class="ui header">
+					<i class="icon inverted circular blue comment"></i> News &amp; Updates
+				</h4>
+				<div class="ui comments">
+					<div class="comment">
+						<div class="content">
+							<a class="author">Some cool news</a>
+							<div class="metadata"><span class="date">2 days ago</span></div>
+							<div class="text">I wish you knew your music was to stay forever...</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ui fluid vertical menu">
+				<div class="header item">
+					<i class="open folder icon"></i> Categories
+				</div>
+				<div class="item">
+					<div class="menu">
+						<a href class="item">Replacers &amp; Retextures</a>
+					</div>
+					<div class="menu">
+						<a href class="item">Quests</a>
+					</div>
+					<div class="menu">
+						<a href class="item">Gameplay</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<%= yield %>
 
 </body>
 </html>

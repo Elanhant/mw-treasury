@@ -5,7 +5,7 @@ class PluginsController < ApplicationController
   	@plugins = 	if params[:keywords]
   								Plugin.where('name ilike ?', "%#{params[:keywords]}%")
   							else
-  								[]
+  								Plugin.last(10)
   							end
   end
 

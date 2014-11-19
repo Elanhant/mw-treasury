@@ -7,7 +7,7 @@ controllers.controller("PluginsController", [ '$scope', '$routeParams', '$locati
 		if $routeParams.keywords
 			Plugin.query(keywords: $routeParams.keywords, (results)-> $scope.plugins = results)
 		else
-			$scope.plugins = []
+			Plugin.query([], (results)-> $scope.plugins = results)
 
 		$scope.view = (pluginId)-> $location.path("/plugins/#{pluginId}")
 

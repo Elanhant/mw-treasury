@@ -1,0 +1,12 @@
+<div class="ui form segment">
+	<button class="ui green button" ng-click="newCategory()">New Category</button>
+</div>
+<div ng-if="categories">
+	<h2 class="ui header">Categories</h2>
+	<div ng-repeat="category in categories">
+		<div class="ui segment">
+			<h2><a href ng-click="view(category.id)">{{ category.name }}</a></h2>
+			<button class="ui blue button" ng-click="edit(category.id)">Edit</button>
+		</div>
+	</div>
+</div>

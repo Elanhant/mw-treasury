@@ -17,4 +17,6 @@
 //= require angular-rails-templates
 //= require angular-resource/angular-resource
 //= require angular-flash/dist/angular-flash
+//= require semantic-ui-sass/app/assets/javascripts/semantic-ui/dimmer
+//= require semantic-ui-sass/app/assets/javascripts/semantic-ui/sidebar
 //= require_tree .

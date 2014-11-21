@@ -6,12 +6,41 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body ng-app="mwTreasury">
+	<div ng-controller="SidebarController">		
+		<div class="ui inverted menu">
+	  	<a class="item" ng-click="showMenu()">
+	    	<i class="list icon"></i> Menu
+	  	</a>
+	  	<a class="item" ng-click="returnHome()">
+	    	<i class="home icon"></i> Home
+	  	</a>
+	  	<a class="item" ng-click="showCategories()">
+	    	<i class="folder icon"></i> Categories
+	  	</a>
+		</div>
+		<div class="ui page dimmer" id="dimmer-categories">
+			<div class="content">
+				<div class="center">
+					<div ng-switch on="categories">
+						<div ng-switch-when="">
+							<h4>No categories here =(</h4>	
+						</div>
+						<div ng-switch-default>
+							<div ng-repeat="category in categories">
+								<p>{{ category.name }}</p>
+							</div>					
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="ui grid">
-		<div class="ten wide column">
+		<div class="sixteen wide column">
 			<%= yield %>
 		</div>
-		<div class="six wide column">
+		<div class="ui wide sidebar" id="menu">
 			<div class="ui piled blue segment">
 				<h4 class="ui header">
 					<i class="icon inverted circular blue comment"></i> News &amp; Updates
@@ -41,7 +70,10 @@
 						<a href class="item">Gameplay</a>
 					</div>
 				</div>
-			</div>
+				<div class="footer item">
+					<a href ng-click="indexCategory()">Manage Categories</a>
+				</div>
+			</div>		
 		</div>
 	</div>
 

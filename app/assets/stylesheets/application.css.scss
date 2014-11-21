@@ -14,4 +14,9 @@
  *= require_self
  */
 
-@import "semantic-ui-sass/app/assets/stylesheets/semantic-ui"
+@import "semantic-ui-sass/app/assets/stylesheets/semantic-ui";
+
+.ui .item .name>a {
+	text-decoration: none;
+	color: #009FDA;
+}

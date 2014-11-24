@@ -65,3 +65,22 @@ mwTreasury.controller('SidebarController', ($scope, $location, $routeParams, $re
 		else
 			Plugin.query([], (results)-> $scope.plugins = results)
 )
+
+mwTreasury.directive('dropdown', ['$timeout', ($timeout)->
+    restrict: "EA"
+    replace: true
+    scope: {
+        ngModel: '=',
+        data: '='            
+    }
+    template: '<div class="ui selection dropdown"><input type="hidden" name="id"><div class="default text">--Select an option--</div><i class="dropdown icon"></i><div class="menu"><div class="item" ng-repeat="item in data" data-value="{{item.id}}">{{item.name}}</div></div></div>'
+    link: (scope, elm, attr)->
+    	changeBound = false;
+    	elm.dropdown(
+    		onShow: ->
+    			if !changeBound
+    				elm.dropdown onChange: (value)-> 
+    						scope.$apply (scope)-> scope.ngModel = value
+    				changeBound = true;
+    			);
+]);

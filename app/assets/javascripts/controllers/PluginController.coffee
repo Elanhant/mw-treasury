@@ -10,7 +10,9 @@ controllers.controller('PluginController', [ '$scope', '$routeParams', '$resourc
 
 		if $routeParams.pluginId
 			Plugin.get({pluginId: $routeParams.pluginId}, 
-				( (plugin)-> $scope.plugin = plugin ),
+				( (httpResponse)-> 
+					$scope.plugin = httpResponse.plugin; 
+					$scope.categories = httpResponse.categories ),
 				( (httpResponse)-> 
 					$scope.plugin = null 
 					flash.error = "There is no plugin with ID #{$routeParams.pluginId}"

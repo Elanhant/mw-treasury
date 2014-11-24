@@ -11,6 +11,7 @@ class PluginsController < ApplicationController
 
   def show
   	@plugin = Plugin.find(params[:id])
+    @categories = Category.all
   end
 
   def create

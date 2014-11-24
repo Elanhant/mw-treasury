@@ -1,1 +1,1 @@
-json.(plugin, :id, :name, :description)
+json.(plugin, :id, :name, :description, :categories)

@@ -17,7 +17,8 @@
 		</div>
 	</div>
 	<div class="field">
-		<dropdown ng-model="plugin.categories" data="categories"></dropdown>
+		<dropdown ng-model="plugin.categories[0]" data="categories"></dropdown>
+		<dropdown ng-model="plugin.categories[1]" data="categories"></dropdown>
 	</div>
 	<div class="field">
 		<button class="ui button" ng-click="cancel()">Cancel</button>

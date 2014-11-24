@@ -22,6 +22,8 @@ class PluginsController < ApplicationController
 
   def update
   	plugin = Plugin.find(params[:id])
+    categories = Category.find(params.require(:categories))
+    plugin.categories = categories
   	plugin.update_attributes(params.require(:plugin).permit(:name,:description))
   	head :no_content
   end

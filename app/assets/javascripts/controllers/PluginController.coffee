@@ -8,11 +8,12 @@ controllers.controller('PluginController', [ '$scope', '$routeParams', '$resourc
 			}
 		)
 
+		Category = $resource('/categories', { format: 'json' })
+		Category.query([], (results)-> $scope.categories = results)
+
 		if $routeParams.pluginId
 			Plugin.get({pluginId: $routeParams.pluginId}, 
-				( (httpResponse)-> 
-					$scope.plugin = httpResponse.plugin; 
-					$scope.categories = httpResponse.categories ),
+				( (result)-> $scope.plugin = result; ),
 				( (httpResponse)-> 
 					$scope.plugin = null 
 					flash.error = "There is no plugin with ID #{$routeParams.pluginId}"
